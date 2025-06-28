@@ -24,9 +24,12 @@ If you have any questions or technical problems regarding the exercise, please e
 High Level Steps
 
 - Research chart libraries and dashboard templates
-- Create react app with next, papaparse, nivo charts
-- Add upload data page
+- Create react app with next
 - Add redux state 
-- Filter data after upload, parse to redux slices
-- Install ui libraries
-- Build out dashboard
+- Add papaparse and mui libraries
+- Add upload data page - Copilot assist on the normalization and deduplication methods
+- Filter data after upload, parse to redux slices - Copilot autocomplete
+- Move upload to component
+- Create Dashboard Layout with DataLoader component
+- Add unit tests to dataTransform utility - Copilot
+- 

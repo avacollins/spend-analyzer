@@ -40,7 +40,7 @@ export function normalizeStringObjects<
       normalizedValue = normalizedValue.toUpperCase();
 
       // Remove special characters (keep only alphanumeric, spaces, and common punctuation)
-      normalizedValue = normalizedValue.replace(/[^\w\s\-\.]/g, "");
+      normalizedValue = normalizedValue.replace(/[^\w\s\-\.&]/g, "");
 
       // Apply standardized values for specific fields
       if (standardizeValues[key] && standardizeValues[key][normalizedValue]) {
