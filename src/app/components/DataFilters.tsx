@@ -1,11 +1,11 @@
-import React, { use, useEffect, useState } from "react";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import React, { useEffect, useState } from "react";
 
 import Autocomplete from "@mui/material/Autocomplete";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import type { RootState } from "../store/store";
+import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { useSelector } from "react-redux";
@@ -41,21 +41,24 @@ export default function DataFilters() {
 
   return (
     <Stack spacing={3} sx={{ minWidth: 250, pt: 5 }}>
-      {Object.entries(queryOptions).map(([key, option]) => (
-        <Autocomplete
-          key={key}
-          multiple
-          id={`${key}-autocomplete`}
-          options={option.options}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label={option.label}
-              placeholder="Select..."
-            />
-          )}
-        />
-      ))}
+      {Object.entries(queryOptions).map(([key, option]) => {
+        const opt = option as { label: string; options: unknown[] };
+        return (
+          <Autocomplete
+            key={key}
+            multiple
+            id={`${key}-autocomplete`}
+            options={opt.options}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label={opt.label}
+                placeholder="Select..."
+              />
+            )}
+          />
+        );
+      })}
       <FormControl fullWidth>
         <InputLabel id="filter-select-label">spend </InputLabel>
         <Select
@@ -63,7 +66,7 @@ export default function DataFilters() {
           id="filter-select"
           value={spendBy[0]}
           label="Spend By"
-          onChange={(event: SelectChangeEvent) => {
+          onChange={() => {
             // Handle filter change logic here
           }}
         >

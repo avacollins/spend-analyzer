@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import DataLoader from "./components/DataLoader";
 import QueryChart from "./components/QueryChart";
 import type { RootState } from "./store/store";
-import { Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 export default function Home() {
