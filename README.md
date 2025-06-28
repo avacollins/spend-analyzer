@@ -158,24 +158,6 @@ src/
 └── ...
 ```
 
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env.local` file for local development:
-
-```env
-# Add any environment variables here
-NEXT_TELEMETRY_DISABLED=1
-```
-
-### Next.js Configuration
-
-The application is configured with:
-- Standalone output for Docker deployment
-- TypeScript support
-- ESLint configuration
-
 ## 📈 Features in Detail
 
 ### Data Processing
@@ -186,6 +168,7 @@ The application is configured with:
 ### Visualization Options
 - **Bar Charts**: Compare spending across categories
 - **Pie Charts**: Show spending distribution
+- **Bump Charts**: Show spending over time
 - **Dynamic Grouping**: Primary and secondary data grouping
 - **Interactive Tooltips**: Detailed spending information
 
@@ -195,29 +178,31 @@ The application is configured with:
 - Filter by topic/category
 - Real-time filter updates
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
+# Development Notes
 
-## 📄 License
+## High Level Steps Taken
 
-This project is private and proprietary.
+- Research chart libraries and dashboard templates
+- Create react app with next and redux 
+- Add papaparse and mui libraries
+- Add upload data page - Copilot assist on the normalization and deduplication methods in dataTransform
+- Register to redux slices - Copilot autocomplete on DataLoader component and DataSlice
+- Move upload page to a component file
+- Create Dashboard Layout with DataLoader component
+- Add unit tests to dataTransform utility - Copilot added
+- Add nivo charts - Copilot assisted with iterations and manual cleanup
+- Add Vercel deployment
+- Add Docker files and updated project README
 
-## 🔗 Learn More
+## If spending more time
 
-To learn more about the technologies used:
+In a nutshell: Move everything into smaller more composable parts so that more granular tests and new charts can be added.
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Material-UI Documentation](https://mui.com/)
-- [Nivo Charts](https://nivo.rocks/)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [TypeScript](https://www.typescriptlang.org/)
+Complete the `AdvertiserSpendingOverTime` chart to include filters for both election and topic; remove total spending option it doesn't seem to provide any useful data. Stopped working on it due to time limit.
 
-## 📞 Support
+Experiment with a circle packing chart as an option.
 
-For questions or support, please contact the development team.
+Integrate filter prototypes from the unused `DataFilters` component to add multiselect aggregation using MUI autocomplete.
+
+Next steps for `QueryChart` and `AdvertiserSpendingOverTime` charts would be to move the data transformation functions into a separate data transformation utility file that can have it's own set of unit tests. Install Storybook UI and begin breaking the UI components our into smaller modules that can be documented and tested with smaller mock data sets to better validate the UI code and the data formatting code separately.

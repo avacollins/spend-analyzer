@@ -21,15 +21,3 @@ They have provided a few questions they’d like to be able to answer in the fin
 If you have any questions or technical problems regarding the exercise, please email peopleops@priorities.org.
 
 
-High Level Steps
-
-- Research chart libraries and dashboard templates
-- Create react app with next
-- Add redux state 
-- Add papaparse and mui libraries
-- Add upload data page - Copilot assist on the normalization and deduplication methods
-- Filter data after upload, parse to redux slices - Copilot autocomplete
-- Move upload to component
-- Create Dashboard Layout with DataLoader component
-- Add unit tests to dataTransform utility - Copilot
-- Add nivo charts
