@@ -2,6 +2,8 @@
 
 A Next.js application for analyzing and visualizing political advertising spending data. This tool allows users to upload CSV files containing political ad spending data and provides interactive charts and analytics.
 
+Link to [LIVE DEMO](https://spend-analyzer-roan.vercel.app) on Vercel
+
 ## 🌟 Features
 
 - **CSV Data Upload**: Upload and parse political advertising spending data
