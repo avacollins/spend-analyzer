@@ -4,7 +4,9 @@ import * as React from "react";
 
 import Box from "@mui/material/Box";
 import DataLoader from "./components/DataLoader";
+import QueryChart from "./components/QueryChart";
 import type { RootState } from "./store/store";
+import { Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 export default function Home() {
@@ -25,16 +27,19 @@ export default function Home() {
         minHeight: "100vh",
       }}
     >
-      <Box
-        sx={{
-          backgroundColor: "#fff",
-          p: 4,
-          flexGrow: 1,
-          minWidth: "300px",
-        }}
-      >
-        <DataLoader />
-      </Box>
+      {!data ||
+        (data.length === 0 && (
+          <Box
+            sx={{
+              backgroundColor: "#fff",
+              p: 4,
+              flexGrow: 1,
+              minWidth: "300px",
+            }}
+          >
+            <DataLoader />{" "}
+          </Box>
+        ))}
 
       <Box
         sx={{
@@ -42,7 +47,9 @@ export default function Home() {
           flexGrow: 5,
           color: "#333",
         }}
-      ></Box>
+      >
+        <QueryChart />
+      </Box>
     </Box>
   );
 }

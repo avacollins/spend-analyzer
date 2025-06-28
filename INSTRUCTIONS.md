@@ -32,4 +32,4 @@ High Level Steps
 - Move upload to component
 - Create Dashboard Layout with DataLoader component
 - Add unit tests to dataTransform utility - Copilot
-- 
+- Add nivo charts
