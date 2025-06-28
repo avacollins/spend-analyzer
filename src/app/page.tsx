@@ -2,10 +2,12 @@
 
 import * as React from "react";
 
+import AdvertiserSpendingOverTime from "./components/AdvertiserSpendingOverTime";
 import Box from "@mui/material/Box";
 import DataLoader from "./components/DataLoader";
 import QueryChart from "./components/QueryChart";
 import type { RootState } from "./store/store";
+import { Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 export default function Home() {
@@ -47,7 +49,16 @@ export default function Home() {
           color: "#333",
         }}
       >
-        <QueryChart />
+        <Typography variant="h4" sx={{ p: 2, textAlign: "center" }}>
+          Political Ad Spending Dashboard
+        </Typography>
+        {data.length > 0 && (
+          <>
+            <QueryChart height={400} />
+
+            <AdvertiserSpendingOverTime height={500} />
+          </>
+        )}
       </Box>
     </Box>
   );
